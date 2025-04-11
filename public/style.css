@@ -1,0 +1,185 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.status {
+    font-size: 1.2rem;
+    color: #3498db;
+}
+
+.moves {
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.cell {
+    width: 120px;
+    height: 120px;
+    background-color: #eee;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.cell .problem {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.cell .answer-input {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+}
+
+.cell .math-input {
+    width: 70%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.cell .submit-btn {
+    width: 30%;
+    padding: 5px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cell .submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.cell.marked {
+    position: relative;
+}
+
+.cell.marked::after {
+    content: attr(data-mark);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.cell.marked .problem,
+.cell.marked .answer-input {
+    visibility: hidden;
+}
+
+#restartButton {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#restartButton:hover {
+    background-color: #2980b9;
+}
+
+.scoreboard {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.scoreboard h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.scores {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+}
+
+.score-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 0.75rem;
+    background-color: #e9ecef;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+}
+
+.score-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 0.75rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.score-item:last-child {
+    border-bottom: none;
+}
+
+.score-item:nth-child(even) {
+    background-color: #f8f9fa;
+}

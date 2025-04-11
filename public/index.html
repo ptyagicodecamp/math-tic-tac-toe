@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Math Tic Tac Toe</h1>
+        <div class="game-info">
+            <div class="status" id="status">Player 1's Turn (X)</div>
+            <div class="moves">Moves: <span id="moveCount">0</span></div>
+        </div>
+        <div class="game-board" id="board">
+            <div class="cell" data-cell-index="0">
+                <div class="problem"></div>
+                <div class="answer-input">
+                    <input type="number" class="math-input" disabled>
+                    <button class="submit-btn" disabled>✓</button>
+                </div>
+            </div>
+            <div class="cell" data-cell-index="1">
+                <div class="problem"></div>
+                <div class="answer-input">
+                    <input type="number" class="math-input" disabled>
+                    <button class="submit-btn" disabled>✓</button>
+                </div>
+            </div>
+            <div class="cell" data-cell-index="2">
+                <div class="problem"></div>
+                <div class="answer-input">
+                    <input type="number" class="math-input" disabled>
+                    <button class="submit-btn" disabled>✓</button>
+                </div>
+            </div>
+            <div class="cell" data-cell-index="3">
+                <div class="problem"></div>
+                <div class="answer-input">
+                    <input type="number" class="math-input" disabled>
+                    <button class="submit-btn" disabled>✓</button>
+                </div>
+            </div>
+            <div class="cell" data-cell-index="4">
+                <div class="problem"></div>
+                <div class="answer-input">
+                    <input type="number" class="math-input" disabled>
+                    <button class="submit-btn" disabled>✓</button>
+                </div>
+            </div>
+            <div class="cell" data-cell-index="5">
+                <div class="problem"></div>
+                <div class="answer-input">
+                    <input type="number" class="math-input" disabled>
+                    <button class="submit-btn" disabled>✓</button>
+                </div>
+            </div>
+            <div class="cell" data-cell-index="6">
+                <div class="problem"></div>
+                <div class="answer-input">
+                    <input type="number" class="math-input" disabled>
+                    <button class="submit-btn" disabled>✓</button>
+                </div>
+            </div>
+            <div class="cell" data-cell-index="7">
+                <div class="problem"></div>
+                <div class="answer-input">
+                    <input type="number" class="math-input" disabled>
+                    <button class="submit-btn" disabled>✓</button>
+                </div>
+            </div>
+            <div class="cell" data-cell-index="8">
+                <div class="problem"></div>
+                <div class="answer-input">
+                    <input type="number" class="math-input" disabled>
+                    <button class="submit-btn" disabled>✓</button>
+                </div>
+            </div>
+        </div>
+        <button id="restartButton">New Game</button>
+        
+        <div class="scoreboard">
+            <h2>Recent Scores</h2>
+            <div class="scores" id="scoresList">
+                <div class="score-header">
+                    <span>Winner</span>
+                    <span>Moves</span>
+                    <span>Date</span>
+                </div>
+                <div id="scoresContainer"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
