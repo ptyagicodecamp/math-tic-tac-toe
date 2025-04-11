@@ -108,7 +108,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (userAnswer === answers[cellIndex]) {
             gameState[cellIndex] = currentPlayer;
             cell.classList.add('marked');
-            cell.setAttribute('data-mark', currentPlayer === 1 ? 'X' : 'O');
+            cell.setAttribute('data-mark', currentPlayer);
+            cell.innerHTML = '';
+            
+            // Add spring animation
+            cell.style.animation = 'none';
+            cell.offsetHeight; // Trigger reflow
+            cell.style.animation = 'sway 1s ease-out';
+
             moveCount++;
             moveCountElement.textContent = moveCount;
             checkWin();

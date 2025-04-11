@@ -4,26 +4,63 @@
     padding: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #e0f4ff 0%, #fff5f7 50%, #f0fff4 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Spring decorations */
+.spring-decoration {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.flower {
+    animation: sway 5s infinite ease-in-out;
+}
+
+.butterfly {
+    animation: flutter 8s infinite ease-in-out;
+}
+
+@keyframes sway {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(5deg); }
+}
+
+@keyframes flutter {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(10px, -10px) rotate(5deg); }
+    50% { transform: translate(0, -20px) rotate(-5deg); }
+    75% { transform: translate(-10px, -10px) rotate(5deg); }
 }
 
 .container {
     text-align: center;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.95);
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+    z-index: 2;
 }
 
 h1 {
-    color: #2c3e50;
+    color: #ff6b6b;
     margin-bottom: 1rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .game-info {
@@ -56,9 +93,12 @@ h1 {
 .cell {
     width: 120px;
     height: 120px;
-    background-color: #eee;
-    border-radius: 8px;
+    background-color: #fff;
+    border-radius: 12px;
     padding: 10px;
+    border: 2px solid #ffd6e0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -90,11 +130,17 @@ h1 {
 .cell .submit-btn {
     width: 30%;
     padding: 5px;
-    background-color: #2ecc71;
+    background-color: #4ecdc4;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cell .submit-btn:hover {
+    background-color: #45b7af;
+    transform: translateY(-1px);
 }
 
 .cell .submit-btn:disabled {
@@ -123,25 +169,31 @@ h1 {
 }
 
 #restartButton {
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 1rem;
-    background-color: #3498db;
+    background-color: #ff8ba7;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(255, 139, 167, 0.3);
 }
 
 #restartButton:hover {
-    background-color: #2980b9;
+    background-color: #ff7096;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 139, 167, 0.4);
 }
 
 .scoreboard {
     margin-top: 2rem;
-    padding: 1rem;
-    background-color: #f8f9fa;
-    border-radius: 8px;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
 .scoreboard h2 {
@@ -162,10 +214,12 @@ h1 {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
     padding: 0.75rem;
-    background-color: #e9ecef;
+    background-color: #ffeef2;
     font-weight: bold;
     position: sticky;
     top: 0;
+    border-radius: 8px 8px 0 0;
+    color: #ff6b6b;
 }
 
 .score-item {
@@ -181,5 +235,15 @@ h1 {
 }
 
 .score-item:nth-child(even) {
-    background-color: #f8f9fa;
+    background-color: #fff9fa;
+}
+
+.cell.marked[data-mark="X"]::after {
+    content: '🌸';
+    font-size: 3.5rem;
+}
+
+.cell.marked[data-mark="O"]::after {
+    content: '🌼';
+    font-size: 3.5rem;
 }
